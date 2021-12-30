@@ -6,14 +6,14 @@ import { UpdateUserDto } from './dto/update-user.dto';
 @Injectable()
 export class UserService {
 
-  constructor(private readonly prisma: PrismaService) {};
+  constructor(private prisma: PrismaService) {}
 
-  create(createUserDto: CreateUserDto) {
-    return 'This action adds a new user';
+  create(data: CreateUserDto) {
+    return this.prisma.user.create({ data });
   }
 
-  findAll() {
-    return `This action returns all user`;
+  findAll() {    
+    return this.prisma.user.findMany();
   }
 
   findOne(id: number) {
