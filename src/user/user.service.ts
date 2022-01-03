@@ -5,14 +5,13 @@ import { UpdateUserDto } from './dto/update-user.dto';
 
 @Injectable()
 export class UserService {
-
   constructor(private prisma: PrismaService) {}
 
   create(data: CreateUserDto) {
     return this.prisma.user.create({ data });
   }
 
-  findAll() {    
+  findAll() {
     return this.prisma.user.findMany();
   }
 
@@ -20,7 +19,7 @@ export class UserService {
     return this.prisma.user.findUnique({
       where: {
         email,
-      }
+      },
     });
   }
 

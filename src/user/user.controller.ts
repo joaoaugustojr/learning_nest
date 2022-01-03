@@ -1,4 +1,14 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Query, UseGuards } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  Query,
+  UseGuards,
+} from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
@@ -22,7 +32,7 @@ export class UserController {
 
   @UseGuards(JwtAuthGuard)
   @Get('/:find')
-  findOne(@Query('email') email : string) {
+  findOne(@Query('email') email: string) {
     return this.userService.findOne(email);
   }
 
